@@ -1,6 +1,6 @@
 {
   "name": "gran-clovismo_nestapi",
-  "version": "0.0.1",
+  "version": "0.0.4",
   "description": "",
   "author": "",
   "private": true,
@@ -25,10 +25,18 @@
   },
   "dependencies": {
     "@nestjs/common": "^10.0.0",
+    "@nestjs/config": "^3.2.2",
     "@nestjs/core": "^10.0.0",
+    "@nestjs/jwt": "^10.2.0",
     "@nestjs/platform-express": "^10.0.0",
+    "@nestjs/schedule": "^4.0.2",
+    "@nestjs/typeorm": "^10.0.2",
+    "@types/bcrypt": "^5.0.2",
+    "bcrypt": "^5.1.1",
+    "mysql2": "^3.10.0",
     "reflect-metadata": "^0.2.0",
-    "rxjs": "^7.8.1"
+    "rxjs": "^7.8.1",
+    "typeorm": "^0.3.20"
   },
   "devDependencies": {
     "@nestjs/cli": "^10.0.0",
