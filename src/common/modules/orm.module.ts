@@ -1,6 +1,14 @@
 import { Module } from "@nestjs/common";
 import { TypeOrmModule } from "@nestjs/typeorm";
 import process from 'node:process';
+import { Case } from '../../packages/case/cases.entity';
+import { Course } from '../../packages/course/course.entity';
+import { Ecurie } from '../../packages/ecurie/ecuries.entity';
+import { Leaderboard } from '../../packages/leaderboard/leaderboards.entity';
+import { Map } from '../../packages/map/maps.entity';
+import { Pilote } from '../../packages/pilote/pilotes.entity';
+import { Podium } from '../../packages/podium/podiums.entity';
+import { Voiture } from '../../packages/voiture/voitures.entity';
 
 // CONST TEMPORAIRE AVANT D'AVOIR UN FICHIER DE CONF AYANT LES INFOS DEDANS
 const defaultOptions = {
@@ -24,6 +32,14 @@ const defaultOptions = {
       password: process.env.DATABASE_PASSWORD,
       database: process.env.DATABASE_NAME,
       entities: [
+        Case,
+        Course,
+        Ecurie,
+        Leaderboard,
+        Map,
+        Pilote,
+        Podium,
+        Voiture,
       ],
       synchronize: true,
       logging: false,

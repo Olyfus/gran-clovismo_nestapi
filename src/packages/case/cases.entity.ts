@@ -24,7 +24,7 @@ export class Case {
   @Column('string', {nullable: true})
   point_4!: string;
 
-  @OneToOne(() => Voiture, voiture: Voiture => voiture.case_id, {nullable: true})
-  @JoinColumn({name:'voiture_id'})
-  voiture: Voiture;
+  //@OneToOne(() => Voiture, voiture: Voiture => voiture.case_id, {nullable: true})
+  //@JoinColumn({name:'voiture_id'})
+  //voiture: Voiture;
 }

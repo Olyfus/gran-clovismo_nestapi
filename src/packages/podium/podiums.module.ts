@@ -1,21 +1,21 @@
 import { Module } from '@nestjs/common';
-import { CasesController } from "./podiums.controller";
-import { CasesService } from "./podiums.service";
+import { PodiumsController } from "./podiums.controller";
+import { PodiumsService } from "./podiums.service";
 import { TypeOrmModule } from "@nestjs/typeorm";
-import { Case } from "./podiums.entity";
+import { Podium } from "./podiums.entity";
 
 @Module({
   imports: [
-    TypeOrmModule.forFeature([Case]),
+    TypeOrmModule.forFeature([Podium]),
   ],
   controllers: [
-    CasesController,
+    PodiumsController,
   ],
   providers: [
-    CasesService,
+    PodiumsService,
   ],
   exports: [
-    CasesService,
+    PodiumsService,
   ]
 })
 export class PodiumsModule {

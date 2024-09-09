@@ -1,8 +1,8 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToOne } from 'typeorm';
 import { Voiture } from '../voiture/voitures.entity';
 
-@Entity('case')
-export class Case {
+@Entity('podium')
+export class Podium {
   @PrimaryGeneratedColumn()
   id: number;
 
@@ -24,7 +24,7 @@ export class Case {
   @Column('string', {nullable: true})
   point_4!: string;
 
-  @OneToOne(() => Voiture, voiture: Voiture => voiture.case_id, {nullable: true})
-  @JoinColumn({name:'voiture_id'})
-  voiture: Voiture;
+  //@OneToOne(() => Voiture, voiture: Voiture => voiture.case_id, {nullable: true})
+  //@JoinColumn({name:'voiture_id'})
+  //voiture: Voiture;
 }

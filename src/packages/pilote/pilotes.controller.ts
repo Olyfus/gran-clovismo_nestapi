@@ -1,18 +1,18 @@
 import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
-import { CasesService } from "./pilotes.service";
+import { PilotesService } from "./pilotes.service";
 import { CreateDto } from './dto/Create.dto';
 import { DeleteDto } from './dto/Delete.dto';
 import { UpdateDto } from './dto/Update.dto';
 import { GetDto } from './dto/Get.dto';
 
 @Controller('case')
-export class CasesController {
-  constructor(private casesService: CasesService) {
+export class PilotesController {
+  constructor(private casesService: PilotesService) {
   }
 
   @Post('/create')
   async create(@Body() dto: CreateDto){
-    await this.casesService.createCase(dto);
+    await this.casesService.createPilote(dto);
   }
 
   @Get('/get')

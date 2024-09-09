@@ -1,6 +1,6 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
-import { Case } from "./maps.entity";
+import { Map } from "./maps.entity";
 import { Repository } from "typeorm";
 import { CreateDto } from './dto/Create.dto';
 import { DeleteDto } from './dto/Delete.dto';
@@ -8,23 +8,23 @@ import { UpdateDto } from './dto/Update.dto';
 import { GetDto } from './dto/Get.dto';
 
 @Injectable()
-export class CasesService {
+export class MapsService {
   constructor(
-    @InjectRepository(Case)
-    private readonly caseRepository: Repository<Case>,
+    @InjectRepository(Map)
+    private readonly caseRepository: Repository<Map>,
   ) {}
 
-  async getById(dto: GetDto): Promise<Case | null> {
+  async getById(dto: GetDto): Promise<Map | null> {
     var id = dto.case_id;
     return this.caseRepository.findOneBy({id});
   }
 
-  async getAll() : Promise<Case[] | null> {
+  async getAll() : Promise<Map[] | null> {
     return this.caseRepository.find();
   }
 
-  async createCase(dto : CreateDto) : Promise<Case> {
-    const case_j = new Case();
+  async createMap(dto : CreateDto) : Promise<Map> {
+    const case_j = new Map();
     return this.caseRepository.save(case_j);
   }
   
