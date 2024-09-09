@@ -6,8 +6,20 @@ export class User {
   @PrimaryGeneratedColumn()
   id: number;
 
+  @Column('longtext')
+  email: string;
+
   @Column('longtext', { nullable: true })
-  aboutMe: string;
+  firstName: string;
+
+  @Column('longtext', { nullable: true })
+  lastName: string;
+
+  @Column('longtext', { nullable: false })
+  passwordEnc: string;
+
+  @Column('longtext', { nullable: true })
+  username: string;
 
   @ManyToOne(() => Role, role => role.users, { onDelete: 'CASCADE' })
   @JoinColumn({ name: 'roleId' })
@@ -18,4 +30,7 @@ export class User {
 
   @Column({ default: false })
   canCreateProject: boolean;
+
+  @Column()
+  validated: boolean;
 }

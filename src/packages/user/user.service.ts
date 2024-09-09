@@ -7,17 +7,19 @@ import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "./user.entity";
 import { Repository } from "typeorm";
 import { ExceptionFilter } from "../../common/security/exception.filter";
-import { AuthSignUpDto } from "../../common/auth/DTO/authsignin.dto";
+import { AuthSignInDto, AuthSignUpDto } from '../../common/auth/DTO/authsignin.dto';
 import { GetByCompanyDto } from "./dto/get.dto";
+import { AuthService } from '../../common/auth/auth.service';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
     private readonly userRepository: Repository<User>,
+    private readonly authService : AuthService,
   ) {}
 
-  async findByName(email: string): Promise<User | null> {
+  async findByEmail(email: string): Promise<User | null> {
     return this.userRepository.findOneBy({email});
   }
 
@@ -25,16 +27,18 @@ export class UsersService {
     return this.userRepository.find();
   }
 
-  async login(loginDto : LoginDto) : Promise<User | null> {
+  async login(loginDto : LoginDto) : Promise<{  access_token : string } | HttpException> {
     var rsVal: boolean;
     var passwordEnc : string;
-    await this.findByName(loginDto.email).then(value => passwordEnc = value.passwordEnc)
+    var dto : AuthSignInDto = new AuthSignInDto();
+    await this.findByEmail(loginDto.email).then(value => passwordEnc = value.passwordEnc)
     await hashAndCompare(loginDto.password, passwordEnc).then(value => rsVal = value);
 
     if (rsVal){
-      return await this.findByName(loginDto.email)
+      dto.mail = loginDto.email;
+      dto.pass = loginDto.password;
     }
-    return null;
+    return await this.authService.signIn(dto);
   }
 
   async createUser(signupDto : AuthSignUpDto) : Promise<User> {
@@ -44,17 +48,8 @@ export class UsersService {
     console.log(user);
     user.lastName = signupDto?.nom;
     user.firstName = signupDto?.prenom;
-    user.companyName = signupDto?.company;
-    user.lastName = signupDto?.nom;
-    user.lastName = signupDto?.nom;
+    user.username = signupDto?.username;
     return this.userRepository.save(user);
-  }
-
-  async getByCompany(dto : GetByCompanyDto) : Promise<User[] | null> {
-    var list : Promise<User[] | null>;
-    // check si la companie existe
-    // check les users vérifier de cette
-    return list;
   }
 
   async remove(id:string): Promise<void> {

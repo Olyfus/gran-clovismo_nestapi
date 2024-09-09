@@ -1,5 +1,4 @@
 import { Role } from "../../role/role.entity";
-import { Company } from "../../company/company.entity";
 
 export class UpdateUserDto {
   aboutMe?:string;

@@ -1,6 +1,6 @@
 export class AuthSignInDto {
   mail:string;
-  pass:any;
+  pass:string;
 }
 
 export class AuthSignUpDto {
@@ -8,8 +8,5 @@ export class AuthSignUpDto {
   password: string;
   nom?: string;
   prenom?: string;
-  company?: string;
-  domaine?: string;
-  type?: string;
-  valid: boolean = false;
+  username?: string;
 }
