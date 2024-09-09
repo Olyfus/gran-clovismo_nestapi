@@ -1,23 +1,20 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { hashAndCompare, hasher } from "../../common/security/hash.security";
 import { LoginDto } from "./dto/login.dto";
-import { SignupDto } from "./dto/signup.dto";
 
 import { InjectRepository } from "@nestjs/typeorm";
 import { User } from "./user.entity";
 import { Repository } from "typeorm";
-import { ExceptionFilter } from "../../common/security/exception.filter";
 import { AuthSignInDto, AuthSignUpDto } from '../../common/auth/DTO/authsignin.dto';
-import { GetByCompanyDto } from "./dto/get.dto";
 import { AuthService } from '../../common/auth/auth.service';
 
 @Injectable()
 export class UsersService {
   constructor(
     @InjectRepository(User)
-    private readonly userRepository: Repository<User>,
-    private readonly authService : AuthService,
-  ) {}
+    private readonly userRepository: Repository<User>
+  ) {
+  }
 
   async findByEmail(email: string): Promise<User | null> {
     return this.userRepository.findOneBy({email});
@@ -31,6 +28,7 @@ export class UsersService {
     var rsVal: boolean;
     var passwordEnc : string;
     var dto : AuthSignInDto = new AuthSignInDto();
+    var authService : AuthService;
     await this.findByEmail(loginDto.email).then(value => passwordEnc = value.passwordEnc)
     await hashAndCompare(loginDto.password, passwordEnc).then(value => rsVal = value);
 
@@ -38,7 +36,7 @@ export class UsersService {
       dto.mail = loginDto.email;
       dto.pass = loginDto.password;
     }
-    return await this.authService.signIn(dto);
+    return await authService.signIn(dto);
   }
 
   async createUser(signupDto : AuthSignUpDto) : Promise<User> {

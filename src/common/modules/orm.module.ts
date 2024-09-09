@@ -26,11 +26,11 @@ const defaultOptions = {
   imports: [
     TypeOrmModule.forRoot({
       type: 'mysql',
-      host: process.env.DATABASE_URL,
-      port: parseInt(process.env.DATABASE_PORT),
-      username: process.env.DATABASE_USER,
-      password: process.env.DATABASE_PASSWORD,
-      database: process.env.DATABASE_NAME,
+      host: defaultOptions.host,
+      port: defaultOptions.port,
+      username: defaultOptions.username,
+      password: defaultOptions.password,
+      database: defaultOptions.database,
       entities: [
         Case,
         Course,
@@ -41,8 +41,8 @@ const defaultOptions = {
         Podium,
         Voiture,
       ],
-      synchronize: true,
-      logging: false,
+      synchronize: defaultOptions.synchronize,
+      logging: defaultOptions.logging,
     }),
   ],
 })

@@ -24,10 +24,6 @@ export class UsersController {
     return await this.usersService.getAll();
   }
 
-  @Get('/getUsersByCompany')
-  async getByCompany(@Body() dto: GetByCompanyDto) {
-    return await this.usersService.getByCompany(dto);
-  }
 
 //   @Put() async put(@Body() updateDto : UpdateUserDto) {return await this.usersService.update(updateDto)}
 }

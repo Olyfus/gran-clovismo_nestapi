@@ -1,5 +1,3 @@
-
-import { Company } from '../company/company.entity';
 import { Role } from '../role/role.entity';
 
 export interface IUser {
@@ -19,7 +17,6 @@ export interface IUser {
   tagNumber?:number;
   username:string;
   role?:Role;
-  company?:Company;
   companyName?: string;
   companyAddress?:string;
   companyPostalCode?:string;

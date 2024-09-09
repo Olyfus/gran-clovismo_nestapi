@@ -1,10 +1,5 @@
-import { Injectable } from "@angular/core";
 import { gearboxEnum } from "../enums/gearbox.enums";
 import { VoitureObj } from "../objects/voiture.object";
-
-@Injectable({
-    providedIn: 'root'
-})
 
 export class GearboxService {
 
