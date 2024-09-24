@@ -1,8 +1,9 @@
 import { Voiture } from '../../voiture/voitures.entity';
+import { Poscase } from '../../poscase/poscase.entity';
 
 export class UpdateDto {
   id:number;
-  pos_id: number[];
+  pos_id: Poscase[];
   coords: string;
   pos_1: string;
   pos_2: string;

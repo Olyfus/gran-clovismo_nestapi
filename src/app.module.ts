@@ -14,6 +14,7 @@ import { MapsModule } from './packages/map/maps.module';
 import { PilotesModule } from './packages/pilote/pilotes.module';
 import { PodiumsModule } from './packages/podium/podiums.module';
 import { VoituresModule } from './packages/voiture/voitures.module';
+import { PoscaseModule } from './packages/poscase/poscase.module';
 
 @Module({
   imports: [
@@ -33,6 +34,7 @@ import { VoituresModule } from './packages/voiture/voitures.module';
     PilotesModule,
     PodiumsModule,
     VoituresModule,
+    PoscaseModule,
   ],
   controllers: [
     AppController,

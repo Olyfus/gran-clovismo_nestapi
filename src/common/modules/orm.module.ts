@@ -9,6 +9,7 @@ import { Map } from '../../packages/map/maps.entity';
 import { Pilote } from '../../packages/pilote/pilotes.entity';
 import { Podium } from '../../packages/podium/podiums.entity';
 import { Voiture } from '../../packages/voiture/voitures.entity';
+import { Poscase } from '../../packages/poscase/poscase.entity';
 
 // CONST TEMPORAIRE AVANT D'AVOIR UN FICHIER DE CONF AYANT LES INFOS DEDANS
 const defaultOptions = {
@@ -40,6 +41,7 @@ const defaultOptions = {
         Pilote,
         Podium,
         Voiture,
+        Poscase,
       ],
       synchronize: defaultOptions.synchronize,
       logging: defaultOptions.logging,

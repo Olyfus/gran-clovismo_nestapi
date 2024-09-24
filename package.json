@@ -1,6 +1,10 @@
 {
   "name": "gran-clovismo_nestapi",
+<<<<<<< Updated upstream
   "version": "0.0.11",
+=======
+  "version": "0.0.13",
+>>>>>>> Stashed changes
   "description": "",
   "author": "",
   "private": true,
