@@ -1,8 +1,8 @@
 import { Body, Controller, Delete, Get, Post, Put } from '@nestjs/common';
 import { PoscaseService } from './poscase.service';
-import { CreateDto } from './dto/Create.dto';
-import { UpdateDto } from './dto/Update.dto';
-import { DeleteDto } from './dto/Delete.dto';
+import { CreateDto } from './dto/create.dto';
+import { UpdateDto } from './dto/update.dto';
+import { DeleteDto } from './dto/delete.dto';
 import { GetDto, GetCaseDto, GetPosDto } from './dto/get.dto';
 
 @Controller('poscase')

@@ -1,10 +1,10 @@
 import { HttpException, HttpStatus, Injectable } from "@nestjs/common";
 import { InjectRepository } from "@nestjs/typeorm";
 import { Repository } from "typeorm";
-import { CreateDto } from './dto/Create.dto';
-import { DeleteDto } from './dto/Delete.dto';
-import { UpdateDto } from './dto/Update.dto';
-import { GetDto, GetPosDto, GetCaseDto } from './dto/Get.dto';
+import { CreateDto } from './dto/create.dto';
+import { DeleteDto } from './dto/delete.dto';
+import { UpdateDto } from './dto/update.dto';
+import { GetDto, GetPosDto, GetCaseDto } from './dto/get.dto';
 import { Poscase } from './poscase.entity';
 
 @Injectable()
