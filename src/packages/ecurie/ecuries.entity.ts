@@ -1,30 +1,32 @@
 import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToOne } from 'typeorm';
-//import { Voiture } from '../voiture/voitures.entity';
 
-@Entity('case')
+@Entity('ecurie')
 export class Ecurie {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('number')
-  pos_id: number[];
+  @Column('text', {nullable: false})
+  nom: string;
 
-  @Column('longtext', {nullable: false})
-  coords!: string;
+  @Column('text', {nullable: true})
+  couleur_p: string;
 
-  @Column('string', {nullable: true})
-  point_1!: string;
+  @Column('text', {nullable: true})
+  couleur_s: string;
 
-  @Column('string', {nullable: true})
-  point_2!: string;
+  //@OneToOne()
+  @JoinColumn({name: 'pilote_p_id'})
+  @Column('int', {nullable: true})
+  pilote_p_id: number;
 
-  @Column('string', {nullable: true})
-  point_3!: string;
+  //@OneToOne()
+  @JoinColumn({name: 'pilote_r_id'})
+  @Column('int', {nullable: true})
+  pilote_r_id: number;
 
-  @Column('string', {nullable: true})
-  point_4!: string;
+  @Column('int', {nullable: true})
+  total_point: number;
 
-  //@OneToOne(() => Voiture, voiture: Voiture => voiture.case_id, {nullable: true})
-  //@JoinColumn({name:'voiture_id'})
-  //voiture: Voiture;
+  @Column('int', {nullable: true})
+  cahmpionnat_gagner: number;
 }

@@ -6,22 +6,22 @@ export class Course {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('number')
+  @Column('int')
   pos_id: number[];
 
   @Column('longtext', {nullable: false})
   coords!: string;
 
-  @Column('string', {nullable: true})
+  @Column('text', {nullable: true})
   point_1!: string;
 
-  @Column('string', {nullable: true})
+  @Column('text', {nullable: true})
   point_2!: string;
 
-  @Column('string', {nullable: true})
+  @Column('text', {nullable: true})
   point_3!: string;
 
-  @Column('string', {nullable: true})
+  @Column('text', {nullable: true})
   point_4!: string;
 
   //@OneToOne(() => Voiture, voiture: Voiture => voiture.course_id, {nullable: true})

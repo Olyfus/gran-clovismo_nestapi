@@ -6,23 +6,50 @@ export class Podium {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('number')
-  pos_id: number[];
+  //@OneToOne()
+  @JoinColumn({name: 'course_id'})
+  @Column('int', {nullable: false})
+  course_id: number;
 
-  @Column('longtext', {nullable: false})
-  coords!: string;
+  //@ManyToOne()
+  @JoinColumn({name:'premiere'})
+  @Column('int', {nullable: false})
+  premiere!: number;
 
-  @Column('string', {nullable: true})
-  point_1!: string;
+  //@ManyToOne()
+  @JoinColumn({name:'deuxieme'})
+  @Column('int', {nullable: false})
+  deuxieme!: number;
 
-  @Column('string', {nullable: true})
-  point_2!: string;
+  //@ManyToOne()
+  @JoinColumn({name:'troisieme'})
+  @Column('int', {nullable: false})
+  troisieme!: number;
 
-  @Column('string', {nullable: true})
-  point_3!: string;
+  //@ManyToOne()
+  @JoinColumn({name:'quatrieme'})
+  @Column('int', {nullable: true})
+  quatrieme!: number;
 
-  @Column('string', {nullable: true})
-  point_4!: string;
+  //@ManyToOne()
+  @JoinColumn({name:'cinquieme'})
+  @Column('int', {nullable: true})
+  cinquieme!: number;
+
+  //@ManyToOne()
+  @JoinColumn({name:'sixieme'})
+  @Column('int', {nullable: true})
+  sixieme!: number;
+
+  //@ManyToOne()
+  @JoinColumn({name:'septieme'})
+  @Column('int', {nullable: true})
+  septieme!: number;
+
+  //@ManyToOne()
+  @JoinColumn({name:'huitieme'})
+  @Column('int', {nullable: true})
+  huitieme!: number;
 
   //@OneToOne(() => Voiture, voiture: Voiture => voiture.case_id, {nullable: true})
   //@JoinColumn({name:'voiture_id'})

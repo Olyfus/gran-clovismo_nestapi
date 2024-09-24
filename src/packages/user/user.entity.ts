@@ -28,9 +28,6 @@ export class User {
   @Column({ type: 'datetime', precision: 6 })
   dateCreated: Date;
 
-  @Column({ default: false })
-  canCreateProject: boolean;
-
   @Column()
   validated: boolean;
 }

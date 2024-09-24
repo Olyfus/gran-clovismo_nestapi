@@ -5,25 +5,42 @@ export class Voiture {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('number')
-  pos_id: number[];
+  //@ManyToOne()
+  @JoinColumn({name:'ecurie_id'})
+  @Column('int', {nullable: false})
+  ecurie_id: number;
 
-  @Column('longtext', {nullable: false})
-  coords!: string;
+  //@ManyToOne()
+  @JoinColumn({name:'pilote_id'})
+  @Column('int', {nullable: true})
+  pilote_id: number;
 
-  @Column('string', {nullable: true})
-  point_1!: string;
 
-  @Column('string', {nullable: true})
-  point_2!: string;
+  @Column('text', {nullable: true})
+  couleur_p: string;
 
-  @Column('string', {nullable: true})
-  point_3!: string;
+  @Column('int', {nullable: true})
+  pneu:number;
 
-  @Column('string', {nullable: true})
-  point_4!: string;
+  @Column('int', {nullable: true})
+  frein:number;
 
-  //@OneToOne(() => Voiture, voiture: Voiture => voiture.case_id, {nullable: true})
-  //@JoinColumn({name:'voiture_id'})
-  //voiture: Voiture;
+  @Column('int', {nullable: true})
+  carrosserie:number;
+
+  @Column('int', {nullable: true})
+  grip:number;
+
+  @Column('int', {nullable: true})
+  essence:number;
+
+  @Column('int', {nullable: true})
+  moteur:number;
+
+  @Column('int', {nullable: false})
+  type_pneu:number;
+
+  @Column('int', {nullable: false})
+  vitesse_enclenchee:number;
+
 }
