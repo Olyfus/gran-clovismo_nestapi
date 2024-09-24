@@ -15,9 +15,9 @@ import { Poscase } from '../../packages/poscase/poscase.entity';
 const defaultOptions = {
   host:'localhost',
   port:3306,
-  username:'root',
-  password:'',
-  database:'nestgcapi',
+  username:'nestgc',
+  password:'Course69!',
+  database:'projet_node_adrien_1',
   synchronize:true,
   logging:false,
   autoload:true,

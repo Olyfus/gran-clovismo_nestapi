@@ -7,7 +7,7 @@ export class Case {
   id: number;
 
   @Column('int')
-  pos_id: number[];
+  pos_id: number;
 
   @Column('longtext', {nullable: false})
   coords!: string;
