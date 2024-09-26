@@ -8,18 +8,8 @@ export class Leaderboard {
   @Column('int')
   pos_id: number[];
 
-  @Column('longtext', {nullable: false})
-  coords!: string;
+  @Column('text', {nullable: false})
+  nom_leaderboard: string;
 
-  @Column('text', {nullable: true})
-  point_1!: string;
-
-  @Column('text', {nullable: true})
-  point_2!: string;
-
-  @Column('text', {nullable: true})
-  point_3!: string;
-
-  @Column('text', {nullable: true})
-  point_4!: string;
+  //
 }

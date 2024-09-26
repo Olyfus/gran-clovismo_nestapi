@@ -3,5 +3,4 @@ export class SignupDto {
   password: string;
   nom?: string;
   prenom?: string;
-  valid: boolean = false;
 }

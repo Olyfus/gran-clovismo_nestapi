@@ -1,29 +1,21 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToOne, OneToMany } from 'typeorm';
+import { Course } from '../course/course.entity';
+import { Case } from '../case/cases.entity';
 
 @Entity('map')
 export class Map {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('int')
-  pos_id: number[];
-
-  @Column('longtext', {nullable: false})
-  coords!: string;
+  @Column('text', {nullable: false})
+  nom_map: string;
 
   @Column('text', {nullable: true})
-  point_1!: string;
+  nom_fichier: string;
 
-  @Column('text', {nullable: true})
-  point_2!: string;
+  @OneToMany(() => Course, course => course.map_id)
+  course: Course[];
 
-  @Column('text', {nullable: true})
-  point_3!: string;
-
-  @Column('text', {nullable: true})
-  point_4!: string;
-
-  //@OneToOne(() => Voiture, voiture: Voiture => voiture.case_id, {nullable: true})
-  //@JoinColumn({name:'voiture_id'})
-  //voiture: Voiture;
+  @OneToMany(() => Case, cases => cases.map_id)
+  cases: Case[];
 }

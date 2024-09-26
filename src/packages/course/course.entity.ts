@@ -1,28 +1,28 @@
-import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToOne } from 'typeorm';
+import { Entity, PrimaryGeneratedColumn, Column, ManyToOne, JoinColumn, OneToOne, OneToMany } from 'typeorm';
 import { Voiture } from '../voiture/voitures.entity';
+import { Podium } from '../podium/podiums.entity';
+import { Map } from '../map/maps.entity';
 
 @Entity('course')
 export class Course {
   @PrimaryGeneratedColumn()
   id: number;
 
-  @Column('int')
-  pos_id: number[];
+  @ManyToOne(()=> Map, map => map.course)
+  @JoinColumn({name:'map_id'})
+  @Column('int', {nullable: false})
+  map_id:Map;
 
-  @Column('longtext', {nullable: false})
-  coords!: string;
+  @OneToOne(() => Podium)
+  @JoinColumn({name:'podium_id'})
+  @Column('int', {nullable: false})
+  podium_id: number;
 
-  @Column('text', {nullable: true})
-  point_1!: string;
+  @Column('int', {nullable: false})
+  nb_tour: number;
 
-  @Column('text', {nullable: true})
-  point_2!: string;
-
-  @Column('text', {nullable: true})
-  point_3!: string;
-
-  @Column('text', {nullable: true})
-  point_4!: string;
+  start_round: any;
+  end_round: any;
 
   //@OneToOne(() => Voiture, voiture: Voiture => voiture.course_id, {nullable: true})
   //@JoinColumn({name:'voiture_id'})

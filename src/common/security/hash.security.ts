@@ -2,9 +2,8 @@ import * as bcrypt from 'bcrypt';
 
 // export type TempUser = {id:number,username:string,password:string};
 export function hasher(toHash: string) {
-  //console.log('To hash '+ toHash)
-  const saltRounds : number = 10;
-  console.log(bcrypt.hash(toHash, saltRounds));
+  console.log('To hash '+ toHash)
+  const saltRounds = 10;
   return bcrypt.hash(toHash, saltRounds);
 }
 

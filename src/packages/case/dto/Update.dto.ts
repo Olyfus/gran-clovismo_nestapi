@@ -1,9 +1,11 @@
 import { Voiture } from '../../voiture/voitures.entity';
 import { Poscase } from '../../poscase/poscase.entity';
+import {Map} from '../../map/maps.entity';
 
 export class UpdateDto {
   id:number;
-  pos_id: number;
+  map_id: Map;
+  pos_id: number[];
   coords: string;
   pos_1: string;
   pos_2: string;

@@ -1,6 +1,6 @@
 export class AuthSignInDto {
-  mail:string;
-  pass:string;
+  id:number;
+  username:string;
 }
 
 export class AuthSignUpDto {
@@ -8,5 +8,4 @@ export class AuthSignUpDto {
   password: string;
   nom?: string;
   prenom?: string;
-  username?: string;
 }

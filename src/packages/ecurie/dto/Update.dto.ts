@@ -1,12 +1,12 @@
 import { Voiture } from '../../voiture/voitures.entity';
 
 export class UpdateDto {
-  id:number;
-  pos_id: number[];
-  coords: string;
-  pos_1: string;
-  pos_2: string;
-  pos_3: string;
-  pos_4: string;
-  voiture?: Voiture;
+  id: number;
+  nom: string;
+  couleur_p: string;
+  couleur_s: string;
+  pilote_p_id: number;
+  pilote_r_id: number;
+  total_point: number;
+  nombre_victoire: number;
 }

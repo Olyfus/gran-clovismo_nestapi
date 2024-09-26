@@ -10,6 +10,8 @@ import { Pilote } from '../../packages/pilote/pilotes.entity';
 import { Podium } from '../../packages/podium/podiums.entity';
 import { Voiture } from '../../packages/voiture/voitures.entity';
 import { Poscase } from '../../packages/poscase/poscase.entity';
+import { User } from '../../packages/user/user.entity';
+import { Role } from '../../packages/role/role.entity';
 
 // CONST TEMPORAIRE AVANT D'AVOIR UN FICHIER DE CONF AYANT LES INFOS DEDANS
 const defaultOptions = {
@@ -42,6 +44,8 @@ const defaultOptions = {
         Podium,
         Voiture,
         Poscase,
+        Role,
+        User,
       ],
       synchronize: defaultOptions.synchronize,
       logging: defaultOptions.logging,

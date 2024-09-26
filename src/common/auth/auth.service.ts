@@ -1,4 +1,4 @@
-import { Injectable, UnauthorizedException } from "@nestjs/common";
+import { forwardRef, Inject, Injectable, UnauthorizedException } from '@nestjs/common';
 import { UsersService } from "../../packages/user/user.service";
 import { hasher } from "../security/hash.security";
 import { JwtService } from "@nestjs/jwt";
@@ -8,27 +8,28 @@ import { AuthSignInDto, AuthSignUpDto } from './DTO/authsignin.dto';
 @Injectable()
 export class AuthService {
   constructor(
-    private usersService: UsersService,
+    @Inject(forwardRef(() => UsersService))
+    private readonly usersService: UsersService,
     private jwtService: JwtService
   ) {}
 
-  async signIn(dto: AuthSignInDto): Promise<{  access_token : string }> {
+  async SignIn(dto: AuthSignInDto): Promise<{ access_token : string }> {
 
-    const user = await this.usersService.findByEmail(dto.mail);
+    //const user = await this.usersService.findByEmail(dto.mail);
 
-    await hasher(dto.pass).then(passEnc => {
-      console.log("Passward " + passEnc +
-        "\nPassword " + user?.passwordEnc);
-      if( user?.passwordEnc !== passEnc) {
-        console.log("fu");
-        throw new UnauthorizedException();
-      }
-      if (user.validated == false) {
-        console.log("user not authorized");
-        throw new UnauthorizedException();
-      }
-    })
-    const payload  = { sub: user.id, username: user.username };
+    //await hasher(dto.pass).then(passEnc => {
+    //  console.log("Passward " + passEnc +
+    //    "\nPassword " + user?.passwordEnc);
+    //  if( user?.passwordEnc !== passEnc) {
+    //    console.log("fu");
+    //    throw new UnauthorizedException();
+    //  }
+    //  if (user.validated == false) {
+    //    console.log("user not authorized");
+    //    throw new UnauthorizedException();
+    //  }
+    //})
+    const payload  = { sub: dto.id, username: dto.username };
     return {
       access_token: await this.jwtService.signAsync(payload),
     };

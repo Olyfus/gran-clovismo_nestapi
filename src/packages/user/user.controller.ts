@@ -9,13 +9,15 @@ export class UsersController {
   constructor(private usersService: UsersService) {
   }
 
-  @Post()
+  @Post('/register')
   async signup(@Body() signUpDto: SignupDto){
     await this.usersService.createUser(signUpDto);
   }
 
-  @Get('/login')
+  @Post('/login')
   async login(@Body() loginDto: LoginDto) {
+    console.log(loginDto.email)
+    console.log(loginDto.password)
     return await this.usersService.login(loginDto);
   }
 
