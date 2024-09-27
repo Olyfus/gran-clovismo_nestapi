@@ -29,5 +29,5 @@ export class Ecurie {
   total_point: number;
 
   @Column('int', {nullable: true})
-  nombre_victoire: number;
+  nb_victoire: number;
 }

@@ -9,12 +9,12 @@ export class RoleController {
   constructor(private roleService: RoleService) {
   }
 
-  @Post()
+  @Post('create')
   async create(@Body() createDto : CreateRoleDto) {
     this.roleService.create(createDto);
   }
 
-  @Get()
+  @Get('/getall')
   async findAll(): Promise<Role[]> {
     return await this.roleService.getAll();
   }

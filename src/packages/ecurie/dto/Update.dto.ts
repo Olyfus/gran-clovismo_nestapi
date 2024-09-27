@@ -8,5 +8,5 @@ export class UpdateDto {
   pilote_p_id: number;
   pilote_r_id: number;
   total_point: number;
-  nombre_victoire: number;
+  nb_victoire: number;
 }

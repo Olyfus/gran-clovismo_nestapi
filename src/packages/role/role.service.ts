@@ -24,6 +24,8 @@ export class RoleService {
   async create(createDto: CreateRoleDto) {
     const obj = new Role();
     obj.name = createDto.name;
+    obj.description = createDto.description;
+    obj.dateCreated = new Date();
     return this.repository.save(obj);
   }
 
